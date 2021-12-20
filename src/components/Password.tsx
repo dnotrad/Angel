@@ -3,15 +3,17 @@ import { useState, VFC } from 'react';
 import s from './Password.module.scss';
 
 import { password } from 'config';
-import { useNavigate } from 'react-router-dom';
 
-const Password: VFC = () => {
+interface IProps {
+  setIsLogin: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Password: VFC<IProps> = ({ setIsLogin }) => {
   const [pass, setPass] = useState('');
-  const navigate = useNavigate();
 
   const handleButtonClick = () => {
     if (password === pass) {
-      navigate('mint');
+      setIsLogin(true);
     }
   };
 
@@ -22,7 +24,7 @@ const Password: VFC = () => {
           value={pass}
           onChange={(e) => setPass(e.target.value)}
           placeholder="Password"
-          type="text"
+          type="password"
         />
         <button onClick={handleButtonClick} type="button">
           Enter
