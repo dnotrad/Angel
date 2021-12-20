@@ -1,5 +1,6 @@
 import { AbiItem } from 'web3-utils';
 
+export const password = 'metaNFT123!';
 export const contractConfig = {
   address: '0xc71369Dac4EbaC91dCCD651147389Ded926fD46a',
   abi: [
